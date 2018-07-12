@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ThyTalent</title>
+	<h1>Take Home Salary Calculator 2018-19</h1>
+	
+			
+
+	<script>
+			
+			function calculate()
+				{
+					var a = document.getElementById("base").value;
+					var b = document.getElementById("ctc").value;
+					document.getElementById("take").innerHTML = a*1+b*1;
+					document.getElementById("pf").value = a*0.12*12;
+					document.getElementById("epf").value = a*0.12*12;
+					document.getElementById("gra").value = a*0.0481*12;
+					document.getElementById("pt").value = 2400;
+					
+				}
+				
+			function hra()
+				{
+					if (document.getElementById("city").value == 1)
+						{
+							document.getElementById("re1").value = document.getElementById("base").value*0.5;
+						}
+					
+					else
+						{
+							document.getElementById("re1").value = document.getElementById("base").value*0.4;
+						}
+						
+					
+				}
+
+						
+			function showadv() 
+					{
+						var x = document.getElementById("adv1");
+						var y = document.getElementById("adv2");
+							if (x.style.display === "none") {
+									x.style.display = "block";
+									y.style.display = "block";
+									document.getElementById("showadv").innerHTML = "Hide Advanced Options";
+							} else {
+									x.style.display = "none";
+									y.style.display = "none";
+									y.style.display = "none";
+									document.getElementById("showadv").innerHTML = "Show Advanced Options";
+							}
+}
+	
+	</script>
+</head>
+
+<body>
+
+	<fieldset style="width:50%">
+	
+		<legend>Basic Details</legend>
+			
+			<table>
+				<tr>
+					<td>Basic Monthly</td>
+					<td><input type = "number" onchange=hra() id="base" required></td>
+				</tr>
+			
+				<tr>
+					<td>CTC Yearly</td>
+					<td><input type = "number" id="ctc"></td>
+				</tr>
+			
+				<tr>
+					<td>Yearly Variable</td>
+					<td><input type = "number" id="var1"></td>
+				</tr>
+				
+				<tr>
+					<td>Other Yearly Components (Group Insurance Premium etc.)</td>
+					<td><input type = "number" id="var2"></td>
+				</tr>
+						
+				<tr>
+					<td>City of residence</td>
+					<td><select id="city" onchange=hra()>
+					<option value="1">Metro</option>
+					<option value="2">Non-Metro</option>
+					</select></td>
+				</tr>
+				
+				<tr>
+					<td><button onclick="calculate()">Calculate</button></td>
+					<td><button onclick="showadv()" id="showadv">Show Advanced Options</button></td>
+				</tr>	
+				
+			</table>
+		
+	</fieldset>
+	
+	<fieldset style="width:50%">
+	
+		<table>
+			
+			<tr>				
+				<td>PF</td>
+				<td><input type = "number" id="pf"></td>
+			</tr>
+			
+			<tr>				
+				<td>EPF</td>
+				<td><input type = "number" id="epf"></td>
+			</tr>
+			
+			<tr>				
+				<td>Gratuity</td>
+				<td><input type = "number" id="gra"></td>
+			</tr>
+			
+			<tr>				
+				<td>Professional Tax</td>
+				<td><input type = "number" id="pt"></td>
+			</tr>
+		
+		</table>
+		
+	</fieldset>
+	
+	
+	<fieldset style="width:50%; display:none;" id="adv1">
+	
+		<table>
+			
+			<tr>				
+				<td>HRA</td>
+				<td><input type = "number" id="re1"></td>
+			</tr>
+			
+			<tr>				
+				<td>LTA</td>
+				<td><input type = "number" id="re2"></td>
+			</tr>
+			
+			<tr>				
+				<td>Food Vouchers</td>
+				<td><input type = "number" id="re3"></td>
+			</tr>
+			
+			<tr>				
+				<td>Fuel Reimbursements</td>
+				<td><input type = "number" id="re4"></td>
+			</tr>
+			
+			<tr>				
+				<td>Telephone Reimbursements</td>
+				<td><input type = "number" id="re5"></td>
+			</tr>
+			
+			<tr>				
+				<td>Other Reimbursements</td>
+				<td><input type = "number" id="re6"></td>
+			</tr>
+		
+		</table>
+	
+	</fieldset>
+	
+	<fieldset style="width:50%; display:none;" id="adv2">
+	
+		<table>
+			
+			<tr>				
+				<td>80C Investment</td>
+				<td><input type = "number" id="inv1"></td>
+			</tr>
+			
+			<tr>				
+				<td>80D</td>
+				<td><input type = "number" id="inv2"></td>
+			</tr>
+			
+			<tr>				
+				<td>Home Loan Interest</td>
+				<td><input type = "number" id="inv3"></td>
+			</tr>
+			
+			<tr>				
+				<td>Other 100% Exemption</td>
+				<td><input type = "number" id="inv4"></td>
+			</tr>
+			
+		
+		</table>
+	
+	</fieldset>
+	
+	
+	
+	<fieldset style="width:50%">
+	
+		<table>
+			
+			<tr>				
+				<td>Monthly Take Home</td>
+				<td><p id="take"></p></td>
+			</tr>
+		
+		</table>
+	
+	</fieldset>
+
+
+
+
+
+
+</body>
+
